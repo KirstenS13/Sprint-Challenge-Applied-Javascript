@@ -14,9 +14,6 @@
 
 //My Code
 //pseudocode
-    //append 'date', h1, and 'temp' to 'header' div element
-
-    //append 'header' to div.header-container
 function Header() {
     //create div element
     const header = document.createElement('div');
@@ -41,4 +38,13 @@ function Header() {
     temp.textContent = '98°'
     //give class 'temp'
     temp.classList.add('temp');
+
+    //append 'date', h1, and 'temp' to 'header' div element
+    header.appendChild(date);
+    header.appendChild(title);
+    header.appendChild(temp);
+
+    //append 'header' to div.header-container
+    const headerContainer = document.querySelector('.header-container');
+    headerContainer.appendChild(header);
 }
