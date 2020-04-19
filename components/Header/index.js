@@ -14,7 +14,7 @@
 
 //My Code
 //pseudocode
-function Header() {
+function Header(dateInfo, tempInfo) {
     //create div element
     const header = document.createElement('div');
     //give class 'header'
@@ -23,7 +23,7 @@ function Header() {
     //create span element
     const date = document.createElement('span');
     //give textContent
-    date.textContent = 'SMARCH 28, 2019';
+    date.textContent = dateInfo;
     //give class 'date'
     date.classList.add('date');
 
@@ -35,7 +35,7 @@ function Header() {
     //create span element
     const temp = document.createElement('span');
     //give textContent
-    temp.textContent = '98°'
+    temp.textContent = tempInfo;
     //give class 'temp'
     temp.classList.add('temp');
 
