@@ -14,17 +14,6 @@
 
 //My Code
 //pseudocode
-    
-
-    
-
-    //create h1 element
-    //give textContent
-
-    //create span element
-    //give textContent
-    //give class 'temp'
-
     //append 'date', h1, and 'temp' to 'header' div element
 
     //append 'header' to div.header-container
@@ -40,4 +29,16 @@ function Header() {
     date.textContent = 'SMARCH 28, 2019';
     //give class 'date'
     date.classList.add('date');
+
+    //create h1 element
+    const title = document.createElement('h1');
+    //give textContent
+    title.textContent = 'Lambda Times';
+
+    //create span element
+    const temp = document.createElement('span');
+    //give textContent
+    temp.textContent = '98°'
+    //give class 'temp'
+    temp.classList.add('temp');
 }
