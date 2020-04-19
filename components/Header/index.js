@@ -47,4 +47,13 @@ function Header(dateInfo, tempInfo) {
     //append 'header' to div.header-container
     const headerContainer = document.querySelector('.header-container');
     headerContainer.appendChild(header);
+
+    //uncomment next line to check that I appended everything correctly
+    //console.log(header);
+
+    //return header element
+    return header;
 }
+
+//Call function
+Header('SMARCH 28, 2019', '98°');
