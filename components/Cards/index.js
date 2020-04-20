@@ -40,7 +40,7 @@ function cardConstructor(articleInfoObj) {
     card.classList.add('card');
 
     //create div element
-    const headline.createElement('div');
+    const headline = document.createElement('div');
     //give div element class 'headline'
     headline.classList.add('headline');
     //give 'headline' div textContent
@@ -59,7 +59,7 @@ function cardConstructor(articleInfoObj) {
     //create img element
     const authorImg = document.createElement('img');
     //give img element src attribute
-    authorImg.src = 'url of author img';
+    //authorImg.src = 'url of author img';
 
     //create span element
     const authorName = document.createElement('span');
@@ -67,8 +67,13 @@ function cardConstructor(articleInfoObj) {
     authorName.textContent = 'By (author name)';
 
     //append img element to 'img-container' div
+    imgContainer.appendChild(authorImg);
     //append 'img-container' div to 'author' div
+    author.appendChild(imgContainer);
     //append span element to 'author' div
+    author.appendChild(authorName);
     //append 'headline' div to 'card' div
+    card.appendChild(headline);
     //append 'author' div to 'card' div
+    card.appendChild(author);
 }
