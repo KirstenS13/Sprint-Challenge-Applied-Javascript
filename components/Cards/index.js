@@ -24,14 +24,14 @@
 //pseudocode
 
 //send GET request
-axios.get('https://lambda-times-backend.herokuapp.com/articles')
+/* axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then((response) => {
         console.log(response);
         //cardConstructor(response);
     })
     .catch((error) => {
         console.log(error)
-    });
+    }); */
 
 //create function to create a card for each article
 //commented out so I can try something else
@@ -137,3 +137,36 @@ function cardConstructor(articleInfoObj) {
     //check that the function is receiving the correct data
     console.log(articleInfoObj.headline, articleInfoObj.authorName, articleInfoObj.authorPhoto)
 }
+
+//my for loop to loop over the objects in the topic arrays
+/* for (i = 0; i < response.data.articles.key.length; i++) {
+    cardConstructor(response.data.articles.key[i]);
+} */
+
+//test that I am accessing the correct data
+//it worked, so I will comment it out
+/* axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then((response) => {
+        console.log(response);
+        for (i = 0; i < response.data.articles.bootstrap.length; i++) {
+            cardConstructor(response.data.articles.bootstrap[i]);
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    }); */
+
+
+//create an array of the keys in the articles object
+//const articleTopics = Object.keys(response.data.articles);
+
+//test that this creates an array correctly
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then((response) => {
+    console.log(response);
+    const articleTopics = Object.keys(response.data.articles);
+    console.log(articleTopics);
+})
+.catch((error) => {
+    console.log(error)
+});
