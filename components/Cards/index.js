@@ -59,7 +59,7 @@ function cardConstructor(articleInfoObj) {
     //create img element
     const authorImg = document.createElement('img');
     //give img element src attribute
-    //authorImg.src = 'url of author img';
+    authorImg.src = 'url of author img';
 
     //create span element
     const authorName = document.createElement('span');

@@ -26,6 +26,9 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
 
 //create function to iterate over the topics
 function tabConstructor(topicInfoObj) {
+    //create array of topics
+    const topicsArray = [];
+
     //use .forEach to iterate over each topic
     topicInfoObj.data.topics.forEach((topicEntry) => {
         //create div element
@@ -38,5 +41,12 @@ function tabConstructor(topicInfoObj) {
         //append div element to the div.topics element
         const topicsContainer = document.querySelector('.topics');
         topicsContainer.appendChild(tab);
+
+        //add each topicEntry to an array of topics
+        topicsArray.push(topicEntry);
     })
+
+    console.log(topicsArray);
+    //return topicsArray
+    return topicsArray;
 };
