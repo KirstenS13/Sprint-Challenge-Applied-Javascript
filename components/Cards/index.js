@@ -25,8 +25,9 @@
 
 //send GET request
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
-    .then((response) => {
-        console.log(response)
+    .then((articleInfoObj) => {
+        console.log(articleInfoObj);
+        cardConstructor(articleInfoObj);
     })
     .catch((error) => {
         console.log(error)
@@ -34,46 +35,51 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
 //create function to create a card for each article
 function cardConstructor(articleInfoObj) {
-    //create div element
-    const card = document.createElement('div');
-    //give div element class 'card'
-    card.classList.add('card');
+    //for (let i = 0; i < topicsArray.length; i++) {
+        for (let key in articleInfoObj) {
+            //create div element
+            const card = document.createElement('div');
+            //give div element class 'card'
+            card.classList.add('card');
 
-    //create div element
-    const headline = document.createElement('div');
-    //give div element class 'headline'
-    headline.classList.add('headline');
-    //give 'headline' div textContent
-    headline.textContent = 'headline of article';
+            //create div element
+            const headline = document.createElement('div');
+            //give div element class 'headline'
+            headline.classList.add('headline');
+            //give 'headline' div textContent
+            headline.textContent = key.headline;
 
-    //create div element
-    const author = document.createElement('div');
-    //give div element class 'author'
-    author.classList.add('author');
+            //create div element
+            const author = document.createElement('div');
+            //give div element class 'author'
+            author.classList.add('author');
 
-    //create div element
-    const imgContainer = document.createElement('div');
-    //give div element class 'img-container'
-    imgContainer.classList.add('img-container');
+            //create div element
+            const imgContainer = document.createElement('div');
+            //give div element class 'img-container'
+            imgContainer.classList.add('img-container');
 
-    //create img element
-    const authorImg = document.createElement('img');
-    //give img element src attribute
-    authorImg.src = 'url of author img';
+            //create img element
+            const authorImg = document.createElement('img');
+            //give img element src attribute
+            authorImg.src = key.authorPhoto;
 
-    //create span element
-    const authorName = document.createElement('span');
-    //give span element textContent
-    authorName.textContent = 'By (author name)';
+            //create span element
+            const authorName = document.createElement('span');
+            //give span element textContent
+            authorName.textContent = `By ${key.authorName}`;
 
-    //append img element to 'img-container' div
-    imgContainer.appendChild(authorImg);
-    //append 'img-container' div to 'author' div
-    author.appendChild(imgContainer);
-    //append span element to 'author' div
-    author.appendChild(authorName);
-    //append 'headline' div to 'card' div
-    card.appendChild(headline);
-    //append 'author' div to 'card' div
-    card.appendChild(author);
+            //append img element to 'img-container' div
+            imgContainer.appendChild(authorImg);
+            //append 'img-container' div to 'author' div
+            author.appendChild(imgContainer);
+            //append span element to 'author' div
+            author.appendChild(authorName);
+            //append 'headline' div to 'card' div
+            card.appendChild(headline);
+            //append 'author' div to 'card' div
+            card.appendChild(author);
+        }
+    //}
+    
 }
