@@ -33,28 +33,42 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
 
 //create function to create a card for each article
-//Create markup
-//create div element
-//give div element class 'card'
+function cardConstructor(articleInfoObj) {
+    //create div element
+    const card = document.createElement('div');
+    //give div element class 'card'
+    card.classList.add('card');
 
-//create div element
-//give div element class 'headline'
-//give 'headline' div textContent
+    //create div element
+    const headline.createElement('div');
+    //give div element class 'headline'
+    headline.classList.add('headline');
+    //give 'headline' div textContent
+    headline.textContent = 'headline of article';
 
-//create div element
-//give div element class 'author'
+    //create div element
+    const author = document.createElement('div');
+    //give div element class 'author'
+    author.classList.add('author');
 
-//create div element
-//give div element class 'img-container'
+    //create div element
+    const imgContainer = document.createElement('div');
+    //give div element class 'img-container'
+    imgContainer.classList.add('img-container');
 
-//create img element
-//give img element src attribute
+    //create img element
+    const authorImg = document.createElement('img');
+    //give img element src attribute
+    authorImg.src = 'url of author img';
 
-//create span element
-//give span element textContent
+    //create span element
+    const authorName = document.createElement('span');
+    //give span element textContent
+    authorName.textContent = 'By (author name)';
 
-//append img element to 'img-container' div
-//append 'img-container' div to 'author' div
-//append span element to 'author' div
-//append 'headline' div to 'card' div
-//append 'author' div to 'card' div
+    //append img element to 'img-container' div
+    //append 'img-container' div to 'author' div
+    //append span element to 'author' div
+    //append 'headline' div to 'card' div
+    //append 'author' div to 'card' div
+}
