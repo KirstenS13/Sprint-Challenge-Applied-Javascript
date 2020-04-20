@@ -25,16 +25,17 @@
 
 //send GET request
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
-    .then((articleInfoObj) => {
-        console.log(articleInfoObj);
-        cardConstructor(articleInfoObj);
+    .then((response) => {
+        console.log(response);
+        //cardConstructor(response);
     })
     .catch((error) => {
         console.log(error)
     });
 
 //create function to create a card for each article
-function cardConstructor(articleInfoObj) {
+//commented out so I can try something else
+/* function cardConstructor(articleInfoObj) {
    // for (let key in articleInfoObj.data.articles) {
         //checking to see that the keys are grabbing the correct things
         //console.log(key);
@@ -83,4 +84,56 @@ function cardConstructor(articleInfoObj) {
             card.appendChild(author);
         })
    // }   
+} */
+
+
+//Retake
+
+//function that accepts the object containing the headline, authorName, and authorPhoto keys
+function cardConstructor(articleInfoObj) {
+    /* //create div element
+    const card = document.createElement('div');
+    //give div element class 'card'
+    card.classList.add('card');
+
+    //create div element
+    const headline = document.createElement('div');
+    //give div element class 'headline'
+    headline.classList.add('headline');
+    //give 'headline' div textContent
+    headline.textContent = articleInfoObj.headline;
+
+    //create div element
+    const author = document.createElement('div');
+    //give div element class 'author'
+    author.classList.add('author');
+
+    //create div element
+    const imgContainer = document.createElement('div');
+    //give div element class 'img-container'
+    imgContainer.classList.add('img-container');
+
+    //create img element
+    const authorImg = document.createElement('img');
+    //give img element src attribute
+    authorImg.src = articleInfoObj.authorPhoto;
+
+    //create span element
+    const authorName = document.createElement('span');
+    //give span element textContent
+    authorName.textContent = `By ${articleInfoObj.authorName}`;
+
+    //append img element to 'img-container' div
+    imgContainer.appendChild(authorImg);
+    //append 'img-container' div to 'author' div
+    author.appendChild(imgContainer);
+    //append span element to 'author' div
+    author.appendChild(authorName);
+    //append 'headline' div to 'card' div
+    card.appendChild(headline);
+    //append 'author' div to 'card' div
+    card.appendChild(author); */
+
+    //check that the function is receiving the correct data
+    console.log(articleInfoObj.headline, articleInfoObj.authorName, articleInfoObj.authorPhoto)
 }
