@@ -35,8 +35,10 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
 //create function to create a card for each article
 function cardConstructor(articleInfoObj) {
-    //for (let i = 0; i < topicsArray.length; i++) {
-        for (let key in articleInfoObj) {
+   // for (let key in articleInfoObj.data.articles) {
+        //checking to see that the keys are grabbing the correct things
+        //console.log(key);
+        articleInfoObj.data.articles.forEach((articleObj) => {
             //create div element
             const card = document.createElement('div');
             //give div element class 'card'
@@ -47,7 +49,7 @@ function cardConstructor(articleInfoObj) {
             //give div element class 'headline'
             headline.classList.add('headline');
             //give 'headline' div textContent
-            headline.textContent = key.headline;
+            headline.textContent = articleObj.headline;
 
             //create div element
             const author = document.createElement('div');
@@ -62,12 +64,12 @@ function cardConstructor(articleInfoObj) {
             //create img element
             const authorImg = document.createElement('img');
             //give img element src attribute
-            authorImg.src = key.authorPhoto;
+            authorImg.src = articleObj.authorPhoto;
 
             //create span element
             const authorName = document.createElement('span');
             //give span element textContent
-            authorName.textContent = `By ${key.authorName}`;
+            authorName.textContent = `By ${articleObj.authorName}`;
 
             //append img element to 'img-container' div
             imgContainer.appendChild(authorImg);
@@ -79,7 +81,6 @@ function cardConstructor(articleInfoObj) {
             card.appendChild(headline);
             //append 'author' div to 'card' div
             card.appendChild(author);
-        }
-    //}
-    
+        })
+   // }   
 }
