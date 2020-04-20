@@ -156,17 +156,72 @@ function cardConstructor(articleInfoObj) {
         console.log(error)
     }); */
 
+//testing the loop with .forEach()
+//it didn't work so I'm commenting it out
+/* axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then((response) => {
+        console.log(response);
+        response.data.articles.bootstrap.forEach(() => {
+            cardConstructor(response.data.articles.bootstrap[i]);
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    }); */
 
 //create an array of the keys in the articles object
 //const articleTopics = Object.keys(response.data.articles);
 
 //test that this creates an array correctly
+//it worked so I will comment it out
+/* axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then((response) => {
+        console.log(response);
+        const articleTopics = Object.keys(response.data.articles);
+        console.log(articleTopics);
+    })
+    .catch((error) => {
+        console.log(error)
+    }); */
+
+
+//Just testing that the array and the loop work at the same time
+//they do, so I will comment it out
+/* axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then((response) => {
+        console.log(response);
+        const articleTopics = Object.keys(response.data.articles);
+        console.log(articleTopics);
+        for (i = 0; i < response.data.articles.bootstrap.length; i++) {
+            cardConstructor(response.data.articles.bootstrap[i]);
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    }); */
+
+
+//loop through articleTopics array, so I can access the keys and loop through their arrays
+/* articleTopics.forEach((topicKey) => {
+    for (i = 0; i < response.data.articles.topicKey.length; i++) {
+        cardConstructor(response.data.articles.topicKey[i]);
+    }
+}) */
+
+//testing whether or not that loop inside forEach worked
+//got it to work
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
-.then((response) => {
-    console.log(response);
-    const articleTopics = Object.keys(response.data.articles);
-    console.log(articleTopics);
-})
-.catch((error) => {
-    console.log(error)
-});
+    .then((response) => {
+        console.log(response);
+        const articleTopics = Object.keys(response.data.articles);
+        console.log(articleTopics);
+        articleTopics.forEach((key) => {
+            console.log(key);
+            for (i = 0; i < response.data.articles[key].length; i++) {
+                cardConstructor(response.data.articles[key][i]);
+            }
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    });
