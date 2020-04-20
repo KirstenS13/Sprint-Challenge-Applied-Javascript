@@ -91,7 +91,8 @@
 
 //function that accepts the object containing the headline, authorName, and authorPhoto keys
 function cardConstructor(articleInfoObj) {
-    /* //create div element
+    //the loop is now working so I'll uncomment the markup and make the card
+    //create div element
     const card = document.createElement('div');
     //give div element class 'card'
     card.classList.add('card');
@@ -101,7 +102,7 @@ function cardConstructor(articleInfoObj) {
     //give div element class 'headline'
     headline.classList.add('headline');
     //give 'headline' div textContent
-    headline.textContent = articleInfoObj.headline;
+    headline.textContent = articleInfoObj['headline'];
 
     //create div element
     const author = document.createElement('div');
@@ -116,12 +117,12 @@ function cardConstructor(articleInfoObj) {
     //create img element
     const authorImg = document.createElement('img');
     //give img element src attribute
-    authorImg.src = articleInfoObj.authorPhoto;
+    authorImg.src = articleInfoObj['authorPhoto'];
 
     //create span element
     const authorName = document.createElement('span');
     //give span element textContent
-    authorName.textContent = `By ${articleInfoObj.authorName}`;
+    authorName.textContent = 'By' + articleInfoObj['authorName'];
 
     //append img element to 'img-container' div
     imgContainer.appendChild(authorImg);
@@ -132,10 +133,18 @@ function cardConstructor(articleInfoObj) {
     //append 'headline' div to 'card' div
     card.appendChild(headline);
     //append 'author' div to 'card' div
-    card.appendChild(author); */
+    card.appendChild(author);
+
+    //select cards-container div
+    const cardsContainer = document.querySelector('.cards-container');
+    //append card to cardsContainer
+    cardsContainer.appendChild(card);
 
     //check that the function is receiving the correct data
     console.log(articleInfoObj.headline, articleInfoObj.authorName, articleInfoObj.authorPhoto)
+
+    //return card
+    return card;
 }
 
 //my for loop to loop over the objects in the topic arrays
